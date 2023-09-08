@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
+
 body {
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23cddcff' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
@@ -98,8 +102,8 @@ main{
 
 .pokemonDetail{
     box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0);
-    width: 30%;
-    height: 500px;
+    width: fit-content;
+    height: fit-content;
     background-color: white;
 }
 
@@ -113,12 +117,14 @@ main{
     text-shadow: 6px 6px var(--light-color);
 }
 
-.pokeList{
+.pokeList, .pokeListItem{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 1em;
+    list-style: none;
+ 
 
 }
 
@@ -130,6 +136,7 @@ main{
     font-size: x-large;
     color: var(--main-color);
     transition: text-shadow 300ms ease;
+    text-decoration: none;
 }
 
 .pokeListItem:hover{

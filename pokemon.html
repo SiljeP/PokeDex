@@ -7,12 +7,13 @@
     <title>Silje's PokeDex</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/variables.css">
-<!-- Fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <section class="headerSection">
@@ -22,7 +23,6 @@
                 <p class="headerTagline">Gotta catch them all</p>
             </div>
             <img src="/images/ash.png" alt="" class="headerImage__right">
-
         </section>
     </header>
     <main>
@@ -30,28 +30,27 @@
             <h2 class="pokeList__title">Pokemons</h2>
             <form class="searchForm">
                 <label class="searchForm__label">
-                    search <input name="search" class="searchForm__input" type="search"
-                        placeholder="Try Charmander!">
+                    search <input name="search" class="searchForm__input" type="search" placeholder="Try Charmander!">
                 </label>
                 <button class="searchForm__button" type="submit">Search</button>
                 <section class="pokeList__section">
                     <ul class="pokeList">
+
                     </ul>
+
                 </section>
+
             </form>
-            <a class="prevPage" href="">Back</a><a class="nextPage" href="">Next</a>
         </article>
-
-
-<article class="pokemonDetail">
-    <h1 class="pokemonName">Pokemons</h1>
-</article>
+        <article class="pokemonDetail">
+       
+        </article>
     </main>
 
 
 
     <script src="/app.js" defer></script>
-   
+    <script src="/pokemon.js" defer></script>
 </body>
 
 </html>
