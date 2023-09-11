@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -13,16 +13,18 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23cddcff' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-main{
+main {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 .headerTitle {
     font-family: var(--title-font);
     font-size: 5em;
     color: var(--main-color);
     padding-top: 1em;
+    letter-spacing: .3rem;
     text-shadow: 8px 8px var(--light-color);
 }
 
@@ -32,6 +34,7 @@ main{
     font-size: xx-large;
     color: var(--light-color);
     padding-top: .5em;
+    letter-spacing: .3rem;
 
     text-shadow: 3px 3px var(--dark-color);
 }
@@ -54,7 +57,7 @@ main{
 
 .pokeList__article {
     box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 50px 50px 15px 50px rgba(0, 0, 0, 0);
-    width: 30%;
+    width: 40%;
     height: fit-content;
     margin: 2em;
     border-radius: 15px;
@@ -67,7 +70,8 @@ main{
     text-align: center;
     padding: .5em;
     color: var(--main-color);
-
+    text-transform: capitalize;
+    letter-spacing: .3rem;
     text-shadow: 4px 4px var(--light-color);
 }
 
@@ -100,14 +104,17 @@ main{
 }
 
 
-.pokemonDetail{
-    box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0);
-    width: fit-content;
+.pokemonDetail {
+    box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    width: 40%;
     height: fit-content;
     background-color: white;
+    margin-top: 2em;
+    border-radius: 15px;
+
 }
 
-.pokemonName{
+.pokemonName {
     font-family: var(--title-font);
     font-size: 3em;
     text-align: center;
@@ -117,28 +124,99 @@ main{
     text-shadow: 6px 6px var(--light-color);
 }
 
-.pokeList, .pokeListItem{
-    text-align: center;
+
+
+.pokeListItem__subHeading{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 1em;
-    list-style: none;
- 
+    align-items: center;
+    justify-content: center;
 
+    color: var(--light-color);
+    font-family: var(--body-font);
+    font-size: x-large;
+    text-transform: uppercase;
+    padding: .5em;
 }
 
-.pokeListItem{
+.pokeList, .pokeListItem {
     list-style: none;
     font-family: var(--body-font);
     text-transform: uppercase;
     padding: .5em;
     font-size: x-large;
     color: var(--main-color);
-    transition: text-shadow 300ms ease;
+
     text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    transition: text-shadow 300ms ease;
+
 }
 
 .pokeListItem:hover{
     text-shadow: 3px 1px 2px var(--light-color);
+}
+
+.pokeListDetail{
+    list-style: none;
+    font-family: var(--body-font);
+    text-transform: uppercase;
+    padding: .5em;
+    font-size: x-large;
+    color: var(--main-color);
+
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+.pokeListCharacteristics{
+    font-family: var(--body-font);
+    text-transform: uppercase;
+    padding: 1em;
+    font-size: x-large;
+    color: var(--light-color);
+
+   
+    font-style: italic;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.madeText {
+    font-size: x-large;
+    font-family: var(--body-font);
+    margin-top: 2em;
+
+}
+
+.pokeListDetailContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.prevPage,
+.nextPage {
+    color: var(--light-color);
+    font-size: x-large;
+    font-family: var(--body-font);
+    text-transform: uppercase;
+
+}
+
+.pageLinksContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pokeList__img {
+    margin: auto;
+    display: flex;
+
 }
