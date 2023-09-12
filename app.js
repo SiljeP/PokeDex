@@ -7,6 +7,9 @@ const OFFSET = parseInt(URL.get("offset") || 0)
 const NEXT_PAGE = document.querySelector(".nextPage")
 const PREV_PAGE = document.querySelector(".prevPage")
 
+const SPINNER = document.querySelector(".spinningIcon")
+SPINNER.style.display = "none"
+
 //APP HAR FREM OG TILBAGE KNAPPER SAMT SØGEFUNKTION
 
 //BACK AND NEXT KNAPPER
@@ -82,3 +85,5 @@ function submitHandler() {
 if(URL.has("pokeSearch")){
     submitHandler()
 }
+
+
