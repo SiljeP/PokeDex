@@ -181,8 +181,8 @@ main {
 .pokeListCharacteristics {
     font-family: var(--body-font);
     text-transform: uppercase;
-    padding: 1em;
-    font-size: x-large;
+    padding: .5em;
+    font-size: xx-large;
     color: var(--light-color);
 
 
@@ -255,7 +255,6 @@ main {
 
 }
 
-
 .spinningIcon::after {
     content: "";
     height: 70px;
@@ -291,3 +290,4 @@ main {
         transform: rotate(359deg);
     }
 }
+
