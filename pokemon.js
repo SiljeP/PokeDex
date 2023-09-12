@@ -1,5 +1,5 @@
 const SPINNER = document.querySelector(".spinningIcon")
-SPINNER.style.display = "none"
+SPINNER.style.display = "block"
 
 //VIS SPINNER
 
@@ -13,6 +13,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
     })
     .then(function (data) {
         //SKJUL SPINNER
+        SPINNER.style.display = "none"
         const POKEMON = document.querySelector(".pokemonDetail")
         console.log(data);
         fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {

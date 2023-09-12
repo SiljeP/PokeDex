@@ -7,8 +7,7 @@ const OFFSET = parseInt(URL.get("offset") || 0)
 const NEXT_PAGE = document.querySelector(".nextPage")
 const PREV_PAGE = document.querySelector(".prevPage")
 
-const SPINNER = document.querySelector(".spinningIcon")
-SPINNER.style.display = "none"
+
 
 //APP HAR FREM OG TILBAGE KNAPPER SAMT SØGEFUNKTION
 
@@ -28,7 +27,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
 })
     // Den her then bruger dataen fra tidligere .then()
     .then(function (data) {
-
+        
         const LAST_OFFSET = data.count - (data.count % 20)
         // ternery operator i næste linie betyder:
         // hvis offset er større end eller lig med det størst mulige offset vi må have,

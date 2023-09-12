@@ -225,6 +225,7 @@ main {
 
 }
 
+/* SPINNER HERUNDER */
 
 .spinningIcon {
     height: 300px;
@@ -233,13 +234,11 @@ main {
     background-color: black;
     border: 5px solid black;
     background-image: linear-gradient(red 0% 45%, black 45% 55%, white 55% 100%);
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
     box-shadow: inset 0px 0px 40px rgba(0, 0, 0, 0.5);
     animation: spinner 1200ms linear infinite;
-  
-
-
+    
 }
 
 .spinningIcon::before {
