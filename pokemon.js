@@ -19,7 +19,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
         POKEMON.innerHTML = `
         <h1 class="pokeList__title">${data.name}</h1>
         <span class="placeholderSVG">
-        <svg  width="450" height="350">
+        <svg width="450" height="350">
             <rect x="40" y="20" width="290" height="200" style="fill:grey;stroke:rgb(79, 78, 78);stroke-width:6;fill-opacity:0.1;stroke-opacity:0.9;"/>
             <circle cx="130" cy="50" r="20" stroke="none" stroke-width="3" fill="rgb(38, 38, 38)" />
             <polygon x="10" y="10" points="120,80 80,200 170,200" style="fill:rgb(80, 79, 79);stroke:none;"/>
@@ -61,4 +61,4 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
 
     })
 
-    {/* <img class="pokeList__img" src="${data.sprites.other["official-artwork"].front_default}"> */}
+    /* <img class="pokeList__img" src="${data.sprites.other["official-artwork"].front_default}"> */

@@ -27,7 +27,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
 })
     // Den her then bruger dataen fra tidligere .then()
     .then(function (data) {
-        
+
         const LAST_OFFSET = data.count - (data.count % 20)
         // ternery operator i næste linie betyder:
         // hvis offset er større end eller lig med det størst mulige offset vi må have,
@@ -40,10 +40,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
             const LI = document.createElement("li")
             LI.innerHTML = `<a class="pokeListItem" href="/pokemon.html?pokeSearch=${result.name}">${result.name}</a>`
             UL.append(LI)
-            console.log(result.name)
+
         });
 
-      
 
     })
 
@@ -51,18 +50,17 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
 
 function submitHandler() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
-    .then(function (response) {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            document.body.innerText += "Something went wrong try again"
-        }
-    })
-    .then(function(data){
-        // console.log(searchResult)
-        const POKEMON = document.querySelector(".pokemonDetail")
-        
-        POKEMON.innerHTML = `
+        .then(function (response) {
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                document.body.innerText += "Something went wrong try again"
+            }
+        })
+        .then(function (data) {
+            const POKEMON = document.querySelector(".pokemonDetail")
+
+            POKEMON.innerHTML = `
         <h1 class="pokeList__title">${data.name}</h1>
         <span class="placeholderSVG">
         <svg  width="450" height="350">
@@ -84,30 +82,26 @@ function submitHandler() {
                 elem => `<li class="pokeListDetail">${elem.ability.name}</li>`
             ).join(" ")}</ul>`
 
-        if (data.id <= 30) {
-            fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {
-                POKEMON.innerHTML += `
+            if (data.id <= 30) {
+                fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {
+                    POKEMON.innerHTML += `
                     <h3 class="pokeListCharacteristics">${characteristic.descriptions[7].description}</h3>
                 `
-            })
-        } 
+                })
+            }
 
-        const IMG = new Image()
-        IMG.src = data.sprites.other["official-artwork"].front_default
-        IMG.className="pokeList__img"
+            const IMG = new Image()
+            IMG.src = data.sprites.other["official-artwork"].front_default
+            IMG.className = "pokeList__img"
 
-        IMG.onload = function () {
-            POKEMON.querySelector(".placeholderSVG svg").style.display = "none"
-            POKEMON.querySelector(".placeholderSVG").append(IMG)
-        }
+            IMG.onload = function () {
+                POKEMON.querySelector(".placeholderSVG svg").style.display = "none"
+                POKEMON.querySelector(".placeholderSVG").append(IMG)
+            }
 
-        console.log(data.types.map(el => {
-            return el.type.name
-        }))
-
-    })
-
-if(URL.has("pokeSearch")){
-    submitHandler()
+        })
 }
+
+if (URL.has("pokeSearch")) {
+    submitHandler()
 }
