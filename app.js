@@ -42,8 +42,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
             UL.append(LI)
 
         });
-
-
     })
 
 //søgefunktion herunder
@@ -95,13 +93,38 @@ function submitHandler() {
             IMG.className = "pokeList__img"
 
             IMG.onload = function () {
+                console.log('tun');
                 POKEMON.querySelector(".placeholderSVG svg").style.display = "none"
                 POKEMON.querySelector(".placeholderSVG").append(IMG)
             }
 
         })
 }
-
 if (URL.has("pokeSearch")) {
     submitHandler()
 }
+
+const DATALIST = document.querySelector("#pokemons")
+const SEARCH_FIELD = document.querySelector(".searchForm__input")
+
+SEARCH_FIELD.addEventListener("focus", getDatalist)
+SEARCH_FIELD.addEventListener("focusout", function (event) {
+    SEARCH_FIELD.removeEventListener("focus", getDatalist)
+})
+
+function getDatalist(event) {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1000")
+        .then(function (response) {
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                document.body.innerText += "Something went wrong try again"
+            }
+        })
+        .then(function (data) {
+            data.results.forEach(function (pokemon) {
+                DATALIST.innerHTML += `<option>${pokemon.name}</option>`
+            })
+        })
+}
+

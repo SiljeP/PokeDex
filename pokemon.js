@@ -38,21 +38,20 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
                 elem => `<li class="pokeListDetail">${elem.ability.name}</li>`
             ).join(" ")}</ul>`
 
-        if (data.id <= 30) {
-            fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {
-                POKEMON.innerHTML += `
-                    <h3 class="pokeListCharacteristics">${characteristic.descriptions[7].description}</h3>
-                `
-            })
-        } 
-
+        // if (data.id <= 30) {
+        //     fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {
+        //         POKEMON.innerHTML += `
+        //             <h3 class="pokeListCharacteristics">${characteristic.descriptions[7].description}</h3>
+        //         `
+        //     })
+        // } 
         const IMG = new Image()
         IMG.src = data.sprites.other["official-artwork"].front_default
         IMG.className="pokeList__img"
 
         IMG.onload = function () {
             POKEMON.querySelector(".placeholderSVG svg").style.display = "none"
-            POKEMON.querySelector(".placeholderSVG").append(IMG)
+            //POKEMON.querySelector(".placeholderSVG").append(IMG)
         }
 
         console.log(data.types.map(el => {
