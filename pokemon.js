@@ -5,17 +5,15 @@ SPINNER.style.display = "block"
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
     .then(function (response) {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            document.body.innerText += "Something went wrong try again"
-        }
+        if (response.status !== 200)
+            throw new Error("error message")
+        return response.json()
     })
     .then(function (data) {
         //SKJUL SPINNER
         SPINNER.style.display = "none"
         const POKEMON = document.querySelector(".pokemonDetail")
-        
+
         POKEMON.innerHTML = `
         <h1 class="pokeList__title">${data.name}</h1>
         <span class="placeholderSVG">
@@ -29,25 +27,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
           </svg></span>
         <p class="pokeListItem__subHeading"> Type:</p>
         <ul class="pokeListDetail">${data.types.map(
-                elem => `<li class="pokeListDetail">${elem.type.name}</li>`
-            ).join(" ")}</ul>
+            elem => `<li class="pokeListDetail">${elem.type.name}</li>`
+        ).join(" ")}</ul>
 		<p class="pokeListItem__subHeading">Height:<span class= "pokeListDetail">${data.height}</span></p>
         <p class="pokeListItem__subHeading">Weight: <span class= "pokeListDetail">${data.weight}</span></p>
 		<p class="pokeListItem__subHeading">Abilities:</p>
 		<ul class="pokeListDetail">${data.abilities.map(
-                elem => `<li class="pokeListDetail">${elem.ability.name}</li>`
-            ).join(" ")}</ul>`
+            elem => `<li class="pokeListDetail">${elem.ability.name}</li>`
+        ).join(" ")}</ul>`
 
-        // if (data.id <= 30) {
-        //     fetch(baseURL + 'characteristic/' + data.id).then(res => res.json()).then(characteristic => {
-        //         POKEMON.innerHTML += `
-        //             <h3 class="pokeListCharacteristics">${characteristic.descriptions[7].description}</h3>
-        //         `
-        //     })
-        // } 
         const IMG = new Image()
         IMG.src = data.sprites.other["official-artwork"].front_default
-        IMG.className="pokeList__img"
+        IMG.className = "pokeList__img"
 
         IMG.onload = function () {
             POKEMON.querySelector(".placeholderSVG svg").style.display = "none"
@@ -57,7 +48,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
         console.log(data.types.map(el => {
             return el.type.name
         }))
+        .catch(function (error) {
+            console.log(error) //her gribes fejlen, og man kan bruge den til 
+            // noget eks. skrive den i konsollen eller paa siden
+            window.location.href = "/ups.html"
+        })
 
     })
-
-    /* <img class="pokeList__img" src="${data.sprites.other["official-artwork"].front_default}"> */

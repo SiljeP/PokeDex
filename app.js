@@ -7,27 +7,17 @@ const OFFSET = parseInt(URL.get("offset") || 0)
 const NEXT_PAGE = document.querySelector(".nextPage")
 const PREV_PAGE = document.querySelector(".prevPage")
 
-
-
-//APP HAR FREM OG TILBAGE KNAPPER SAMT SØGEFUNKTION
+//APP.JS HAR FREM OG TILBAGE KNAPPER SAMT SØGEFUNKTION
 
 //BACK AND NEXT KNAPPER
 
-fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
-    headers: {
-        "accept": "application/json"  // optional. eller kan også være "text/plain"
-    },
-    method: "GET" //optional fordi det er GET
-}).then(function (response) {
-    if (response.status === 200) {
+fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`)
+    .then(function (response) {
+        if (response.status !== 200) 
+            throw new Error("error message")
         return response.json()
-    } else {
-        document.body.innerText += "Something went wrong try again"
-    }
-})
-    // Den her then bruger dataen fra tidligere .then()
+    })
     .then(function (data) {
-
         const LAST_OFFSET = data.count - (data.count % 20)
         // ternery operator i næste linie betyder:
         // hvis offset er større end eller lig med det størst mulige offset vi må have,
@@ -40,8 +30,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`, {
             const LI = document.createElement("li")
             LI.innerHTML = `<a class="pokeListItem" href="/pokemon.html?pokeSearch=${result.name}">${result.name}</a>`
             UL.append(LI)
-
-        });
+        })
+    })
+    .catch(function (error) {
+        console.log(error) //her gribes fejlen, og man kan bruge den til 
+        // noget eks. skrive den i konsollen eller paa siden
+        window.location.href = "/ups.html"
     })
 
 //søgefunktion herunder

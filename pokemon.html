@@ -27,7 +27,7 @@
             <img src="/images/ash.png" alt="" class="headerImage__right">
         </section>
     </header>
-    <main>
+    <main class="pokedexMain">
 
         <div class="pokeListDetailContainer">
             <article class="pokeList__article">
@@ -37,8 +37,8 @@
                         search
                         <input name="pokeSearch" list="pokemons" class="searchForm__input" type="search"
                             placeholder="Try Charmander!">
-                            <datalist id="pokemons">
-                            </datalist> 
+                        <datalist id="pokemons">
+                        </datalist>
                     </label>
                     <button class="searchForm__button" type="submit">Search</button>
                     <section class="pokeList__section">
@@ -54,11 +54,14 @@
             <article class="pokemonDetail">
                 <h1 class="pokemonName">Choose a pokemon in the left box &#11013</h1>
             </article>
-
-            <p class="madeText">Made using https://pokeapi.co/ as API practice</p>
             <div class="spinningIcon"></div>
         </div>
     </main>
+    <footer class="pokeFooter">
+        <p class="errrorSite">Go to error message <a class="errorSite__link" href="/ups.html">here</a></p>
+        <p class="madeText">Made using https://pokeapi.co/ as API practice</p>
+    </footer>
+
     <script src="/app.js" defer></script>
     <script src="/pokemon.js" defer></script>
 </body>
