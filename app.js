@@ -13,7 +13,7 @@ const PREV_PAGE = document.querySelector(".prevPage")
 
 fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`)
     .then(function (response) {
-        if (response.status !== 200) 
+        if (response.status !== 200)
             throw new Error("error message")
         return response.json()
     })

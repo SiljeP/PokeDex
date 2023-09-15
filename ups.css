@@ -28,7 +28,7 @@
 }
 
 .errorBack__container {
-   
+
     text-align: center;
 }
 
@@ -43,7 +43,7 @@
     letter-spacing: .4rem;
 }
 
-.errorBack:hover{
+.errorBack:hover {
     text-shadow: 6px 7px var(--dark-color);
     transition: text-shadow 300ms ease;
 }

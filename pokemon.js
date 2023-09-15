@@ -48,10 +48,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${URL.get("pokeSearch")}`)
         console.log(data.types.map(el => {
             return el.type.name
         }))
-        .catch(function (error) {
-            console.log(error) //her gribes fejlen, og man kan bruge den til 
-            // noget eks. skrive den i konsollen eller paa siden
-            window.location.href = "/ups.html"
-        })
+            .catch(function (error) {
+                console.log(error) //her gribes fejlen, og man kan bruge den til 
+                // noget eks. skrive den i konsollen eller paa siden
+                window.location.href = "/ups.html"
+            })
 
     })
