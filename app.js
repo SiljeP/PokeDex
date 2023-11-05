@@ -28,7 +28,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}`)
 
         data.results.forEach(function (result) {
             const LI = document.createElement("li")
-            LI.innerHTML = `<a class="pokeListItem" href="/pokemon.html?pokeSearch=${result.name}">${result.name}</a>`
+            LI.innerHTML = `<a class="pokeListItem" href="${URL}/pokemon.html?pokeSearch=${result.name}">${result.name}</a>`
             UL.append(LI)
         })
     })
